@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean id="stBo0" class="com.nt.bo.StudentBo" scope="prototype"></bean>
+<bean id="empbo" class="com.nt.bo.EmployeeBo" scope="prototype"></bean>
+<bean id="dao" class="com.nt.dao.RegistrationDao" scope="singleton"></bean>
+<bean id="service" class="com.nt.service.Service" scope="singleton">
+<property name="dao" ref="dao"></property>
+<lookup-method name="createStudentBo" bean="stBo0"/>
+<lookup-method name="createEmployeeBo" bean="empbo"/>
+</bean>
+</beans>
